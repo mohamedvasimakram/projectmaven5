@@ -1,6 +1,6 @@
 pipeline{
   agent any 
-  stages {
+  stages{
     stage "print server info" {
       steps {
         sh """
