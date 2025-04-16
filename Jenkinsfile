@@ -6,6 +6,7 @@ pipeline{
   tools
   {
     maven 'maven'
+  }
   stages{
     stage("print server info"){
       steps{
