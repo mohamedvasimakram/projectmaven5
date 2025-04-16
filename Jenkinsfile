@@ -3,17 +3,13 @@ pipeline{
   {
     label 'java_slave_node'
   }
+  tools
+  {
+    maven 'maven'
   stages{
     stage("print server info"){
       steps{
-        sh """
-        echo ${env.JOB_NAME}
-        echo ${env.BULID_ID}
-        uptime
-        whoami
-        pwd
-        echo ${env.HOSTNAME}
-        """
+        sh 'mvn clean package'
       }
     }
   }
