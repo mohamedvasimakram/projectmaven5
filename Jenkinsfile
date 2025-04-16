@@ -1,16 +1,15 @@
 pipeline{
-  agent 
-  {
-    label 'java_slave_node'
-  }
-  tools
-  {
-    maven 'maven'
-  }
+  agent any
   stages{
-    stage("print server info"){
+    stage ("system info"){
       steps{
-        sh 'mvn clean package'
+        sh """
+        echo ${env.JOB_NAME}
+        echo ${env.BUILD_ID}
+        uptime
+        whoami
+        echo ${env.HOSTNAME}
+        """
       }
     }
   }
