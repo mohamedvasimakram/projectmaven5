@@ -8,8 +8,9 @@ pipeline{
     }
   }
     stage('run the container'){
-    steps {
+    steps{
       sh 'docker run -it -d --name app -p 80:80 nginx'
     }
   }
+}
 }
