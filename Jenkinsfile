@@ -1,21 +1,16 @@
-pipeline
-{
+pipeline{
     agent any
-    stages
-    {
+    stages{
         stage('nginx image')
         {
-            steps
-            {
+            steps{
                 sh 'docker pull nginx'
             }
         }
-    stage('run container')
-    {
-        steps
-        {
-            sh 'docker run -it -d --name app -p 80:81 nginx'
+    stage('run container'){
+        steps{
+            sh 'docker run -it -d --name app -p 80:8000 nginx'
         }
     }
-    }
+  }
 }
