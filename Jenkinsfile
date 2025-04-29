@@ -5,8 +5,7 @@ pipeline
     {
         stage('nginx image')
         {
-            steps
-            {
+            steps {
                 sh 'docker pull nginx'
             }
         }
@@ -15,7 +14,7 @@ pipeline
         steps
         {
             sh '''
-            docker rm -f app3
+            docker rm -f app10
             docker run -it -d --name app3 -p 8000:8000 nginx
             '''
         }
