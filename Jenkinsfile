@@ -1,17 +1,14 @@
 pipeline{
-  agent{
-    label'java_slave_node'
+  agent any
   stages{
-    stage ("system info"){
+    stage('pull the image') {
       steps{
-        sh """
-        echo ${env.JOB_NAME}
-        echo ${env.BUILD_ID}
-        uptime
-        whoami
-        echo ${env.HOSTNAME}
-        """
+        sh'docker pull nginx'
       }
+    }
+    stage('run the container')
+    steps {
+      sh 'docker run -it -d --name app -p 80:80 nginx'
     }
   }
 }
