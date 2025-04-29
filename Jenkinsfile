@@ -8,9 +8,9 @@ pipeline{
         }
         stage('to run container'){
             steps{
-               sh 'docker stop app5 || true'
-               sh 'docker rm -rf app5 || true'
-               sh 'docker run -it -d --name app5 -p 8081:80 nginx'
+               sh 'docker stop hello || true'
+               sh 'docker rm -rf hello || true'
+               sh 'docker run -it -d --name hello -p 8081:80 nginx'
            }
         }
     }
