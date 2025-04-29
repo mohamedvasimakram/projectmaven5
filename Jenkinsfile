@@ -1,22 +1,17 @@
-pipeline
-{
+pipeline{
     agent any
-    stages
-    {
-        stage('nginx image')
-        {
+    stages {
+        stage('nginx image'){
             steps {
                 sh 'docker pull nginx'
             }
         }
-    stage('to run container')
-    {
+    stage('to run container'){
         steps
         {
-            sh '''
-            docker rm -f app10
-            docker run -it -d --name app3 -p 8000:8000 nginx
-            '''
+           sh'docker stop app5'
+           sh'docker rm -rf app5'
+            sh'docker run -it -d --name app5 -p 8081:8000 nginx'
         }
     }
     }
